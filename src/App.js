@@ -22,16 +22,17 @@ class App extends Component {
             selectedvideo: null
         };
 
-        YTSearch({key: api_key, term: 'most recent'}, (data) => {
-            console.log('data', data);
+        this.videosearch('surfboard');
+    }
+
+    videosearch(term) {
+        YTSearch({key: api_key, term: term}, (data) => {
             this.setState({
                 videos: data,
                 selectedvideo: data[0]
             });
 
         });
-
-
     }
 
     render() {
@@ -51,7 +52,7 @@ class App extends Component {
                     <Link to="/about">About</Link>
                     To get started, edit <code >src/App.js</code> and save to reload.
                 </p>
-                <SearchBar/>
+                <SearchBar onSearchTermChange={term => this.videosearch(term)} />
                 <VideoDetail selectedvideo={this.state.selectedvideo}/>
 
                 <VideoList

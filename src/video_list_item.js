@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 class VideoListItem extends Component {
     constructor(props){
         super(props);
-        console.log('props', props);
-
     }
     render (){
         const video = this.props.video;

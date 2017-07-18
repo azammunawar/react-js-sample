@@ -7,7 +7,6 @@ class VideoDetail extends Component {
     }
 
     render() {
-        console.log('this.props.selectedvideo', this.props.selectedvideo);
         var imgurl, title, description;
         if (this.props.selectedvideo) {
              imgurl = this.props.selectedvideo.snippet.thumbnails.default.url;
