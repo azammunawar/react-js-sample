@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -9,15 +9,27 @@ class SearchBar extends Component {
 
     }
 
-    render (){
-        return(
+    render() {
+        return (
             <div className="searchbar">
-               
-                <input type="text"
-                       value={this.state.input}
-                       onChange={event => this.setState({input: event.target.value})}
-                />
-                <input type="button" onClick={() => this.props.onSearchTermChange(this.state.input)} value="Search"/>
+                <form action="">
+                    <div className="form-group col-sm-10">
+                        <input type="text"
+                               className="form-control"
+                               value={this.state.input}
+                               onChange={event => this.setState({input: event.target.value})}
+                        />
+                    </div>
+                    <div className="col-sm-2">
+                        <input type="button"
+                               className="btn btn-default"
+                               onClick={() => this.props.onSearchTermChange(this.state.input)}
+                               value="Search"/>
+                    </div>
+
+
+                </form>
+
             </div>
         );
     }

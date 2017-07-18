@@ -14,7 +14,7 @@ class VideoListItem extends Component {
                  <div className="img"><img src={imgurl} alt=""/></div>
                  <div className="content">
                      <div className="title">{title}</div>
-                     <div className="description">{description}</div>
+
                  </div>
 
              </li>

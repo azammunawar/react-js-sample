@@ -1,3 +1,7 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+body {
+  padding: 10px 0 !important;
+}
 .App {
   text-align: center;
 }
@@ -27,11 +31,11 @@ ul {
 }
 .videolist .img {
   float: left;
-  width: 200px;
+  width: 140px;
 }
 .videolist .content {
   float: left;
-  width: calc(100% - 200px);
+  width: calc(100% - 140px);
   text-align: left;
 }
 .videolist .title {

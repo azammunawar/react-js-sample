@@ -37,30 +37,20 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    {this.state.input}
-                    length: {this.state.videos.length}
-                    <h2>Welcome to React</h2>
-                    <input
-                        type="text"
+            <div className="container">
 
-                    />
+                <SearchBar onSearchTermChange={term => this.videosearch(term)}/>
+                <div className="row clearfix">
+                    <div className="col-sm-8">
+                        <VideoDetail selectedvideo={this.state.selectedvideo}/>
+                    </div>
+                    <div className="col-sm-4">
+                        <VideoList
+                            onSelectVideo={selectedvideo => this.setState({selectedvideo})}
+                            videos={this.state.videos}
+                        />
+                    </div>
                 </div>
-                <p className="App-intro">
-                    <Link to="/about">About</Link>
-                    To get started, edit <code >src/App.js</code> and save to reload.
-                </p>
-                <SearchBar onSearchTermChange={term => this.videosearch(term)} />
-                <VideoDetail selectedvideo={this.state.selectedvideo}/>
-
-                <VideoList
-                    onSelectVideo={selectedvideo => this.setState({selectedvideo})}
-                    videos={this.state.videos}
-                />
-
-
             </div>
         );
     }
