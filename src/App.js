@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import {Link} from 'react-router-dom';
 import SearchBar from './searchbar';
 import VideoList from './videolist';
+import VideoDetail from './videodetail';
 import YTSearch from 'youtube-api-search';
 import './App.css';
 
@@ -13,15 +14,22 @@ const api_key = 'AIzaSyBxVF7VJvvLJc1mwJbJ8njfMweESosawOc';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {input: ''};
-        this.state = {videos: []};
+        this.state = {
+            input: ''
+        };
+        this.state = {
+            videos: [],
+            selectedvideo: null
+        };
 
-            YTSearch({key: api_key, term: 'most recent'}, (data) => {
-                console.log('data', data);
-                this.setState({videos: data});
-                console.log('videos search', this.state.videos);
-                //const video = <VideoList videos={this.state.videos} />
+        YTSearch({key: api_key, term: 'most recent'}, (data) => {
+            console.log('data', data);
+            this.setState({
+                videos: data,
+                selectedvideo: data[0]
             });
+
+        });
 
 
     }
@@ -35,7 +43,7 @@ class App extends Component {
                     length: {this.state.videos.length}
                     <h2>Welcome to React</h2>
                     <input
-                            type="text"
+                        type="text"
 
                     />
                 </div>
@@ -44,8 +52,13 @@ class App extends Component {
                     To get started, edit <code >src/App.js</code> and save to reload.
                 </p>
                 <SearchBar/>
-                <VideoList videos={this.state.videos}/>
-                {this.video}
+                <VideoDetail selectedvideo={this.state.selectedvideo}/>
+
+                <VideoList
+                    onSelectVideo={selectedvideo => this.setState({selectedvideo})}
+                    videos={this.state.videos}
+                />
+
 
             </div>
         );
