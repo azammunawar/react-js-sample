@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 //     );
 // }
 
-class About extends Component {
+class Child extends Component {
     constructor(props) {
         super(props);
         console.log('props', props);
@@ -15,9 +15,8 @@ class About extends Component {
     }
       render() {
         return (
-           <div>ssdf</div>
-
+           <div>Child</div>
         );
     }
 }
-export default About;
+export default Child;
