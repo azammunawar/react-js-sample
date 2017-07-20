@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import {Link} from 'react-router-dom';
 import SearchBar from './searchbar';
 import VideoList from './videolist';
 import VideoDetail from './videodetail';
 import YTSearch from 'youtube-api-search';
+import Books from './containers/books_list';
 import './App.css';
 
 
@@ -43,6 +43,7 @@ class App extends Component {
                 <div className="row clearfix">
                     <div className="col-sm-8">
                         <VideoDetail selectedvideo={this.state.selectedvideo}/>
+                        <Books/>
                     </div>
                     <div className="col-sm-4">
                         <VideoList
