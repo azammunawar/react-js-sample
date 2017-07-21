@@ -22,7 +22,7 @@ class App extends Component {
             selectedvideo: null
         };
 
-        this.videosearch('surfboard');
+        this.videosearch('eminem');
     }
 
     videosearch(term) {
