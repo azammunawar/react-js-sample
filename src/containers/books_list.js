@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import selectBook from '../actions/index';
+import {selectBook} from '../actions/index';
 import {bindActionCreators} from 'redux';
 
 class Books extends Component {
@@ -9,15 +9,12 @@ class Books extends Component {
         super(props);
         console.log('proops', props);
     }
-    hello = function () {
-        alert()
-    }
+
     renderList = function () {
-        return this.props.books.map(function (book) {
-            console.log(this);
+        return this.props.books.map(book => {
             return (
                 <li key={book.title}
-                    onClick={() => hello() }
+                    onClick={() => this.props.selectBook(book)}
                     >
                     {book.title}
                 </li>

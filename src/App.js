@@ -5,6 +5,8 @@ import VideoList from './videolist';
 import VideoDetail from './videodetail';
 import YTSearch from 'youtube-api-search';
 import Books from './containers/books_list';
+import ActiveBook from './containers/active_book';
+
 import './App.css';
 
 
@@ -44,6 +46,7 @@ class App extends Component {
                     <div className="col-sm-8">
                         <VideoDetail selectedvideo={this.state.selectedvideo}/>
                         <Books/>
+                        <ActiveBook/>
                     </div>
                     <div className="col-sm-4">
                         <VideoList
